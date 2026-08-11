@@ -1,0 +1,27 @@
+UPM uses a simple method to unify software building and package management
+
+all the files of a package reside in one directory
+even dependencies are hardlinked into this directory
+	though they will be updated when the dependency package is updated
+exported executables and applications will be symlinked into global system directories
+UPM updates packages atomically and automatically
+
+UPM can be used as a software builder and package manager, on any Posix system
+you just need to have "gnunet" on your system
+	if "gnunet" is not available, "curl" (or "wget") and "ssh-keygen" will be used instead
+to bootstrap from source, these extra programs are required too:
+	clang git ssh-keygen
+now just run this command to install "upm" in user's home directory:
+; sh upm/install.sh
+if "bubblewrap" is available, the installed programs will be executed in a sandbox
+
+UPM can also be used to build and maintain a Linux based operating system, with a user interface based on Uni
+first we must create a bootable installer on a removable storage device
+to do that, you just need a Linux system, and these programs:
+	gnunet mkfs.vfat (dosfstools)
+	if "gnunet" is not available, "curl" (or "wget") and "ssh-keygen" will be used instead
+to bootstrap from source, these extra programs are required too:
+	clang git ssh-keygen
+now create the bootable installer by running this command:
+; sh upm-linux/mkinst.sh
+then boot into the installer, and follow the instructions
