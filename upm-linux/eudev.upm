@@ -1,0 +1,11 @@
+# https://github.com/eudev-project/eudev
+
+# skip eudev-hwids
+# https://pkgs.alpinelinux.org/package/edge/main/x86_64/eudev-hwids
+
+# /dev/dri/card* must have group "dri", not the usual one, ie "video"
+
+# to prevent BadUSB, write udev rules that once a bluetooth keyboard is connected,
+# blocks usb (excluding btusb) input devices (keyboard, mouse, michrophone),
+# https://manned.org/man/udev
+# https://www.reactivated.net/writing_udev_rules.html

@@ -1,0 +1,6 @@
+dep llvm
+
+# https://github.com/microsoft/mimalloc#overriding-standard-malloc
+
+# Modern Linker:
+# https://github.com/rui314/mold
