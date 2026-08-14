@@ -25,3 +25,10 @@ to bootstrap from source, these extra programs are required too:
 now create the bootable installer by running this command:
 ; sh upm-linux/mkinst.sh
 then boot into the installer, and follow the instructions
+
+UPM Linux is very strict on security
+for example, to prevent tampering, the root partition is encrypted,
+	and the key is provided by TPM only when the signatures of the bootloader, kernel and initramfs are valid
+another example is the rather extreme method it uses to prevent bad USB attacks
+UPM Linux treats USB input devices as temporary means to set the Bluetooth input devices
+	and once a Bluetooth keyboard is connected, all USB input devices will be blocked
