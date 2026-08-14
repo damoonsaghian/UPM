@@ -1,13 +1,9 @@
 # https://github.com/davmac314/dinit
+# https://github.com/chimera-linux/dinit-chimera
 
 # init
 # run services
 # mount a tmpfs in /run and /tmp
 # PATH=/usr/bin
-
-# chimera linux
-# https://wiki.artixlinux.org/Main/Installation
-# https://gitea.artixlinux.org/artix
-# https://packages.artixlinux.org/
 
 # dinit --offline --services-dir /usr/share/dinit

@@ -41,30 +41,30 @@ done
 cd "$target_dir"
 
 # create  an initramfs (for $arch) that includes programs needed to install Uni
+# https://pkgs.chimera-linux.org/package/current/main/x86_64/initramfs-tools
 # https://wiki.alpinelinux.org/wiki/How_to_make_a_custom_ISO_image_with_mkimage
 mkdir initfs
 # init, login, install.py, web browser
 
-echo 'acpid
+echo 'bash
 bluez
 chrony
 cryptsetup
 dbus
 dinit
-doas
 dte
 eudev
 gnunet
 linux
 netman
+opendoas
 pipewire
-sbase
-sh
+powerman
+tpm2tools
+utils
 upm
-tpm2-tools
-util-linux
-codev-shell
-codev' | while read -r pkg_name; do
+ushell
+uni' | while read -r pkg_name; do
 	ROOT_DIR="$wdir"/initfs sh "$script_dir"/upm.sh install "$pkg_name"
 done
 

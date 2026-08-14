@@ -1,37 +1,16 @@
-# https://git.busybox.net/busybox/tree
-# -D _PATH_PASSWD=\"/var/etc/passwd\" -D _PATH_GROUP=\"/var/etc/group\" -D _PATH_SHADOW=\"/var/etc/shadow\"
-# https://gitlab.alpinelinux.org/alpine/aports/-/blob/master/main/busybox/busyboxconfig
-# enable: rtcwake
-# disable: *mount* *volumid* eject fstrim *blk* blockdev findfs *fdisk* *_label *swap*
+# https://github.com/chimera-linux/chimerautils
 
-# echo 'permit nopass nu cmd /usr/bin/passwd nu' > /etc/doas.d/passwd.conf
-
-# for mount and block device commands, use util-linux instead
-# https://pkgs.alpinelinux.org/package/edge/main/x86_64/util-linux
-# https://git.kernel.org/pub/scm/utils/util-linux/util-linux.git/tree/meson_options.txt
-# https://git.kernel.org/pub/scm/utils/util-linux/util-linux.git/tree/
-# mount umount libmount mountpoint findmnt eject fstrim
-# lsblk blkid libblkid blkdiscard blkzone blockdev findfs wipefs
-# fdisk libfdisk mkswap swapon swapoff
-# uuidgen libuuid
-# lscpu lsmem
+# https://pkgs.chimera-linux.org/package/current/main/x86_64/util-linux
 # disable: su runuser login mcookie logger partx sfdisk cfdisk setarch ...
-
-# create executable from autologin.sh
 
 # agetty service for tty1 and tty2
 # /usr/bin/agetty --skip-login --nonewline --noissue --noreset --noclear -l /usr/bin/autologin - ${TERM}
 
-echo '#!/usr/bin/env sh
-# run dinit user services, like pipewire, wireplumber, and dbus
-# https://manpages.debian.org/trixie/dbus-daemon/dbus-daemon.1.en.html
-' > /usr/bin/home-services
-chmod +x /usr/bin/home-services
+# create executable from autologin.sh
 
-# https://git.kernel.org/pub/scm/linux/kernel/git/kdave/btrfs-progs.git/about/
-# https://github.com/dosfstools/dosfstools
-# https://github.com/exfatprogs/exfatprogs
+# https://github.com/shadow-maint/shadow
+# --with-libpam=no
+# -D _PASSWD_FILE=\"/var/etc/passwd\" -D _GROUP_FILE=\"/var/etc/group\"
+# it seems that there no SHADOW_FILE to set to "/var/etc/shadow"
 
-# suspend system with support for hooks (needed for some drivers)
-# https://github.com/jirutka/zzz
-# doas rules
+# echo 'permit nopass nu cmd /usr/bin/passwd nu' > /etc/doas.d/passwd.conf

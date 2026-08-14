@@ -1,6 +1,6 @@
 # https://github.com/tpm2-software/tpm2-tools
 
-# gnutls implementes a compatibility wrapper for openssl; try to use that
-# if it failed, use openssl
+# tmp2-tss
+# --with-crypto=none
 
 # tmp-getkey.sh

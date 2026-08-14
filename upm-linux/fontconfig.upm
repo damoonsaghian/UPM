@@ -2,7 +2,7 @@
 # , wide characters are forced to squeeze
 # , narrow characters are forced to stretch
 # , bold characters don't have enough room
-# proportional font for code:
+# proportional fonts for code (quasi-proportional fonts):
 # , generous spacing
 # , large punctuation
 # , and easily distinguishable characters
