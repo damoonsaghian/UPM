@@ -10,3 +10,4 @@ upmx -cmd unet unet.sh
 # doas rules for "upm" (if run as root)
 
 # autoupdate crond file
+# echo '* * * * * ID=autoupdate FREQ=1d/5m autoupdate' > /etc/cron.d/autoupdate
