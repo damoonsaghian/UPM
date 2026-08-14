@@ -10,7 +10,7 @@ while ! ping -c 2 -w 5 ping.archlinux.org; do
 done
 
 # format a storage device for installing the new system
-new_root="$(mktemp -d /run/user/"$(id u)"/uni.XXX)"
+new_root="$(mktemp -d /run/user/"$(id -u)"/new_root.XXX)"
 . "$script_dir"/install-mkfs.sh
 
 mkdir -p "$new_root"/{root,tmp,run,proc,sys,dev}
