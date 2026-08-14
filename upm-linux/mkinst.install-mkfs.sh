@@ -15,10 +15,6 @@ read -r target_device
 	exit 1
 }
 
-# if $target_device is a partition, set it to the parent device
-target_device_num="$(cat /sys/class/block/"$target_device"/dev | cut -d ":" -f 1):0"
-target_device="$(basename "$(readlink /dev/block/"$target_device_num")")"
-
 # exit if $target_device is the root device
 root_partition="$(mount -l | grep " on / " | cut -d ' ' -f 1 | sed -n "s@/dev/@@p")"
 root_device_num="$(cat /sys/class/block/"$root_partition"/dev | cut -d ":" -f 1):0"
