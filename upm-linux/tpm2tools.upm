@@ -1,6 +1,0 @@
-# https://github.com/tpm2-software/tpm2-tools
-
-# tmp2-tss
-# --with-crypto=none
-
-# tmp-getkey.sh

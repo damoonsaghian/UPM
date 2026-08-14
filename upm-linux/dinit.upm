@@ -1,9 +1,0 @@
-# https://github.com/davmac314/dinit
-# https://github.com/chimera-linux/dinit-chimera
-
-# init
-# run services
-# mount a tmpfs in /run and /tmp
-# PATH=/usr/bin
-
-# dinit --offline --services-dir /usr/share/dinit

@@ -1,8 +1,0 @@
-# gsk gtk4 gtksourceview
-
-# webkitgtk
-# can we replace libsoup with curl?
-# https://wpewebkit.org/blog/04-wpe-networking-overview.html
-# https://docs.webkit.org/Ports/WindowsPort.html
-# https://everything.curl.dev/http/browserlike.html
-# replace gcrypt

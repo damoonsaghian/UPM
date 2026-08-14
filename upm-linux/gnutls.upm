@@ -1,7 +1,0 @@
-upmi nettle
-
-# disable p11-kit, cause it's useless
-# because when a system is compromized, though it can protect the private key itself,
-# it can't prevent using the private key (eg for signing)
-
-# https://gitlab.alpinelinux.org/alpine/ca-certificates
