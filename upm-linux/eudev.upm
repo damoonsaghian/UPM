@@ -3,7 +3,6 @@
 # skip eudev-hwids
 # https://pkgs.alpinelinux.org/package/edge/main/x86_64/eudev-hwids
 
-# do not set the group of /dev/dri/card* to "video"
 # set the group of audio and camera devices to "nu"
 
 # to prevent BadUSB, write udev rules that once a bluetooth keyboard is connected,
