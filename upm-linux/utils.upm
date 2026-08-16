@@ -12,13 +12,20 @@
 # set autologin for tty1 and tty2
 # /usr/bin/agetty --autologin nu - ${TERM}
 
-# create executable from autologin.sh
-
 # https://github.com/shadow-maint/shadow
 # --with-libpam=no
 # -D _PASSWD_FILE=\"/var/etc/passwd\" -D _GROUP_FILE=\"/var/etc/group\"
 # it seems that there no SHADOW_FILE to set to "/var/etc/shadow"
-
+#
+# no multi'user: no need for pam_uaccess
+# PAM is centralized, complicated and useless
+# we really just need password based login
+# fingerprint on its own is insecure, and as extra method, it's just a hassle
+# face recognition is ridiculous as a security method
+# CCID smartcards seems useless, because when physical access is possible, smartcards can't help much, so why bother
+# in addition, for a single user system with no login, these can be implemented by the lock screen
+# so there is really no need for PAM
+#
 # echo 'permit nu cmd /usr/bin/passwd nu' > /etc/doas.d/passwd.conf
 
 # implement a parent control service, which needs root password for activation and deactivation

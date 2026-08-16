@@ -83,7 +83,6 @@ fi
 ' > "$new_root"/etc/apk/commit_hooks.d/create-boot-files
 chmod +x "$new_root"/etc/apk/commit_hooks.d/create-boot-files
 
-
 chmod +x "$new_root"/usr/local/share/codev-util/tpm-getkey.sh
 ln -s /usr/local/share/codev-util/tpm-getkey.sh "$new_root"/usr/local/bin/tpm-getkey
 
@@ -97,24 +96,11 @@ while ! chroot "$new_root" passwd root; do
 done
 
 # create a normal user
-# libseat only works for wlroots based wayland compositors
-# pipewire does not use libseat; so the user must be in video and audio groups
-# it's ok, since the system is single user, and only input devices must be protected (to protect root passsword)
-# https://wiki.alpinelinux.org/wiki/Setting_up_a_new_user#Groups_for_desktop_usage
 chroot "$new_root" useradd --base-dir / --create-home --shell /usr/bin/ushell nu
 echo; echo "set lock'screen password"
 while ! chroot "$new_root" passwd nu; do
 	echo "please retry"
 done
-
-# no multi'user: no need for pam_uaccess
-# PAM is centralized, complicated and useless
-# we really just need password based login
-# fingerprint on its own is insecure, and as extra method, it's just a hassle
-# face recognition is ridiculous as a security method
-# CCID smartcards seems useless, because when physical access is possible, smartcards can't help much, so why bother
-# in addition, for a single user system with no login, these can be implemented by the lock screen
-# so there is really no need for PAM
 
 echo; echo "installation completed successfully"
 printf "reboot the system? (Y/n) "
