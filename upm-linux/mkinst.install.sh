@@ -72,12 +72,6 @@ utils" | {
 	done
 }
 
-##########
-#  boot  #
-##########
-
-echo "disable_trigger=yes" > "$new_root"/etc/mkinitfs/mkinitfs.conf
-
 echo '#!/bin/sh
 if [ "$1" = "pre-commit" ]; then
     true
@@ -94,10 +88,6 @@ chmod +x "$new_root"/usr/local/share/codev-util/tpm-getkey.sh
 ln -s /usr/local/share/codev-util/tpm-getkey.sh "$new_root"/usr/local/bin/tpm-getkey
 
 chroot "$new_root" sh /usr/local/share/systemd-boot/bootup.sh
-
-##########
-#  user  #
-##########
 
 echo; echo "set root password (can be the same as he one used to encrypt the root partition)"
 echo "WARNING! do not use this password carelessly"
@@ -116,12 +106,6 @@ echo; echo "set lock'screen password"
 while ! chroot "$new_root" passwd nu; do
 	echo "please retry"
 done
-echo 'permit nopass nu cmd /usr/bin/passwd nu' > /mnt/etc/doas.d/passwd.conf
-
-ln -s /usr/local/share/util-linux/autologin.sh "$new_root"/usr/local/bin/autologin
-chmod +x "$new_root"/usr/local/share/util-linux/autologin.sh
-# create autologin dinit services for tty1 and tty2
-# /usr/bin/agetty --skip-login --nonewline --noissue --noreset --noclear -l /usr/local/bin/autologin - ${TERM}
 
 # no multi'user: no need for pam_uaccess
 # PAM is centralized, complicated and useless

@@ -3,8 +3,14 @@
 # https://pkgs.chimera-linux.org/package/current/main/x86_64/util-linux
 # disable: su runuser login mcookie logger partx sfdisk cfdisk setarch ...
 
-# agetty service for tty1 and tty2
-# /usr/bin/agetty --skip-login --nonewline --noissue --noreset --noclear -l /usr/bin/autologin - ${TERM}
+# zram swap service:
+# modprobe zram
+# zramctl /dev/zram0 --algorithm zstd --size "$(($(grep -Po 'MemTotal:\s*\K\d+' /proc/meminfo)/2))KiB"
+# mkswap -U clear /dev/zram0
+# swapon --discard --priority 100 /dev/zram0
+
+# set autologin for tty1 and tty2
+# /usr/bin/agetty --autologin nu - ${TERM}
 
 # create executable from autologin.sh
 
@@ -13,4 +19,8 @@
 # -D _PASSWD_FILE=\"/var/etc/passwd\" -D _GROUP_FILE=\"/var/etc/group\"
 # it seems that there no SHADOW_FILE to set to "/var/etc/shadow"
 
-# echo 'permit nopass nu cmd /usr/bin/passwd nu' > /etc/doas.d/passwd.conf
+# echo 'permit nu cmd /usr/bin/passwd nu' > /etc/doas.d/passwd.conf
+
+# implement a parent control service, which needs root password for activation and deactivation
+# it runs as user "parent" (create if does not exist) and reports (through gnunet f2f) various data
+# including the status of the device (so the parent will know if the os is replaced)
