@@ -6,6 +6,7 @@
 # <servicedir>$XDG_DATA_HOME/dbus-1/services</servicedir>
 
 # dinit user service for dbus
+# DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 
 # /usr/share/dbus-1/session.conf
 # /usr/share/dbus-1/session.d/
