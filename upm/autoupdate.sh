@@ -6,6 +6,11 @@ touch /tmp/lock.upm
 # a 5min delay, for when it's started on boot
 sleep 300
 
+[ -e /sys/class/power_supply/BAT0 ] &&
+	[ "$(cat /sys/class/power_supply/BAT0/status)" = Discharging ] &&
+	[ "$(cat /sys/class/power_supply/BAT0/capacity)" -lt 30 ] &&
+	# watch cat /sys/class/power_supply/BAT0/status and when it's Charging, continue
+
 # if net is down, wait for it to get up
 
 # do not run autoupdate on metered connection
@@ -18,10 +23,5 @@ while [ $metered_connection = true ]; do
 	*) metered_connection = false ;;
 	esac
 done
-
-[ -e /sys/class/power_supply/BAT0 ] &&
-	[ "$(cat /sys/class/power_supply/BAT0/status)" = Discharging ] &&
-	[ "$(cat /sys/class/power_supply/BAT0/capacity)" -lt 30 ] &&
-	# watch cat /sys/class/power_supply/BAT0/status and when it's Charging, continue
 
 upm update
