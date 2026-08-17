@@ -1,6 +1,0 @@
-# libseat only works for wlroots based wayland compositors
-# pipewire does not use libseat; so the user must be in video and audio groups
-# it's ok, since the system is single user, and only input devices must be protected (to protect root passsword)
-# https://wiki.alpinelinux.org/wiki/Setting_up_a_new_user#Groups_for_desktop_usage
-# https://github.com/elogind/elogind/blob/main/rules.d/70-uaccess.rules.in
-# https://github.com/elogind/elogind/blob/main/rules.d/71-seat.rules.in
