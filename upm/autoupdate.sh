@@ -1,5 +1,12 @@
+# ensuring exclusivity
+[ -e /tmp/lock.upm ] && exit
+trap "trap - EXIT; rm /tmp/lock.upm" EXIT INT TERM QUIT HUP PIPE
+touch /tmp/lock.upm
+
 # a 5min delay, for when it's started on boot
 sleep 300
+
+# if net is down, wait for it to get up
 
 # do not run autoupdate on metered connection
 metered_connection=true
