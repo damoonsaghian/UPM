@@ -6,6 +6,7 @@
 # mount a tmpfs in /run and /tmp
 # PATH=/usr/bin
 
-# dinit --services-dir /usr/share/dinit
+# dinit --services-dir /var/lib/dinit --services-dir /usr/share/dinit
+# links to services enabled by the admin are in /var/lib/dinit/boot.d
 
 # dinit --offline --services-dir /usr/share/dinit
