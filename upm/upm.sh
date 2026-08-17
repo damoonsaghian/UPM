@@ -2,8 +2,6 @@
 
 script_dir="$(dirname "$(readlink -f "$0")")"
 
-# for starter implement it as awrapper around apk
-
 # notifications: error, update process, update finished
 
 case "$1" in
