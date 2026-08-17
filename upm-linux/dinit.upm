@@ -6,4 +6,6 @@
 # mount a tmpfs in /run and /tmp
 # PATH=/usr/bin
 
+# dinit --services-dir /usr/share/dinit
+
 # dinit --offline --services-dir /usr/share/dinit
