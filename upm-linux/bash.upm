@@ -1,9 +1,31 @@
 # for interactive shell
 # https://cgit.git.savannah.gnu.org/cgit/bash.git
-# CFLAGS: -DSYS_BASHRC="/usr/share/bash/bashrc"
 
+# bash-sec
+# #!/usr/bin/env sh
+# script_dir="$(dirname "$(readlink -f "$0")")"
+# if [ "$1" = "-l" ]; then
+# 	"$script_dir"/bash --rcfile $script_dir"/../bash_profile
+# else
+# 	"$script_dir"/bash --rcfile "$script_dir"/../bashrc
+# fi
+
+# bash_profile
+# https://github.com/chimera-linux/cports/blob/master/main/base-files/files/share/profile
+# /usr/share/bash_profile/*.sh
+
+# bashrc
 # https://github.com/chimera-linux/cports/blob/master/main/bash/files/bashrc
+# /usr/share/bashrc/*.sh
 
-# /usr/share/bash/profile
+cat <<-'EOF' > /usr/share/bashrc/prompt.sh
+PS1='\[$(
+IFS="[;" read -p $"\e[6n" -d R -rs _ _ line _
+[ "$line" = 1 ] || echo
+printf "%0.s─" $(seq 1 $((COLUMNS/2 - ${#PWD}/2 - 1)) )
+)\]\e[7m \[${PWD}\] \e[0m\[$(printf "%0.s─" $(seq 1 $((COLUMNS - COLUMNS/2 + ${#PWD}/2 + 2 - ${#PWD} - 3)) ))\]\n'
+PS2=""
+PS0='\[$(printf "%0.s-" $(seq 1 $((COLUMNS)) ))\]\n'
+EOF
 
 # bash-completion
