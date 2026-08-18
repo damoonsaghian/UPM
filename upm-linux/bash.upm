@@ -2,6 +2,8 @@
 # https://cgit.git.savannah.gnu.org/cgit/bash.git
 # CFLAGS: -DSYS_BASHRC="/usr/share/bash/bashrc"
 
+# https://github.com/chimera-linux/cports/blob/master/main/bash/files/bashrc
+
 # /usr/share/bash/profile
 
 # bash-completion
