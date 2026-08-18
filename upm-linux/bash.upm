@@ -1,3 +1,7 @@
 # for interactive shell
 # https://cgit.git.savannah.gnu.org/cgit/bash.git
+# CFLAGS: -DSYS_BASHRC="/usr/share/bash/bashrc"
+
+# /usr/share/bash/profile
+
 # bash-completion
