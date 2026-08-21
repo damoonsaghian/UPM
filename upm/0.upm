@@ -7,7 +7,7 @@ upmx -cmd upm upm.sh
 upmx -cmd upmb upmb.sh
 upmx -cmd unet unet.sh
 
-# polkit rules to run "upm" using pkexec
+# doas rule for upm
 
 # autoupdate crond file
 # echo '* * * * * ID=autoupdate FREQ=1d/5m autoupdate' > /etc/cron.d/autoupdate
