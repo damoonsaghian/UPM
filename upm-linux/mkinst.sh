@@ -57,7 +57,6 @@ eudev
 gnunet
 linux
 netman
-opendoas
 pipewire
 powerman
 tpm2tools

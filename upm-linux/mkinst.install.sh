@@ -29,7 +29,7 @@ fi
 
 cp "$script_dir"/upm.sh "$new_root"/usr/bin/upm
 chmod +x "$new_root"/usr/bin/upm
-echo 'permit nopass nu cmd /usr/bin/upm' > "$new_root"/etc/doas.d/upm.conf
+# polkit rule to run upm using pkexec
 
 export PATH="$new_root/usr/bin:$PATH"
 
