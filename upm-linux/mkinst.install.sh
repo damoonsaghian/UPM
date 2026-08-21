@@ -27,10 +27,6 @@ if [ "$ans" = y ]; then
 	echo "build'from'src" > "$new_root"/var/lib/upm/config
 fi
 
-cp "$script_dir"/upm.sh "$new_root"/usr/bin/upm
-chmod +x "$new_root"/usr/bin/upm
-# polkit rule to run upm using pkexec
-
 export PATH="$new_root/usr/bin:$PATH"
 
 case "$(uname -m)" in
@@ -43,13 +39,13 @@ esac
 
 echo "$ucode
 acpid
+bash
 bluez
 boot
 chrony
 cryptsetup
 dbus
 dinit
-doas
 dte
 eudev
 fsprogs
@@ -57,9 +53,8 @@ fwupd
 gnunet
 linux
 netman
+opendoas
 pipewire
-sbase
-sh
 tpm2tools
 uni
 upm
