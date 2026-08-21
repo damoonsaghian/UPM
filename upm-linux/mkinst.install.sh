@@ -55,6 +55,7 @@ linux
 netman
 opendoas
 pipewire
+seatd
 tpm2tools
 uni
 upm
@@ -91,7 +92,7 @@ while ! chroot "$new_root" passwd root; do
 done
 
 # create a normal user
-chroot "$new_root" useradd --base-dir / --create-home --shell /usr/bin/ushell nu
+chroot "$new_root" useradd --groups audio,video,seatd --base-dir / --create-home --shell /usr/bin/ushell nu
 echo; echo "set lock'screen password"
 while ! chroot "$new_root" passwd nu; do
 	echo "please retry"
