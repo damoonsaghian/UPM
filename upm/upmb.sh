@@ -103,11 +103,8 @@ else
 	# if gn_namespace is revoked try the alternative ones from .data/gnunet/$gn_namespace
 	# also print a warning
 	
-	if [ "$(id -u)" = 0 ]; then
-		upm_download $gn_namespace $pkg_name
-	else
-		doas upm download $gn_namespace $pkg_name
-	fi
+	# run as upm user
+	upm_download $gn_namespace $pkg_name
 	
 	eval PKG$pkg_name="\"$build_dir\""
 	# packages needed as build'time dependency, are mentioned in the "UPMbuild.sh" script, like this:

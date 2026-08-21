@@ -13,10 +13,10 @@ update)
 	# boot'firmware updates need special care
 	# unless there is a read'only backup, firmware update is not a good idea
 	# so warn and ask the user if she wants the update
-	# doas fwupdmgr get-devices
-	# doas fwupdmgr refresh
-	# doas fwupdmgr get-updates
-	# doas fwupdmgr update
+	# fwupdmgr get-devices
+	# fwupdmgr refresh
+	# fwupdmgr get-updates
+	# fwupdmgr update
 	;;
 find) apk search $2 ;;
 esac
@@ -174,7 +174,7 @@ elif [ "$1" = remove ]; then
 	
 	if [ "$(id -u)" = 0 ]; then
 		# exit if package_name is: acpid bash bluez chrony dash dbus dte eudev fwupd gnunet systemd-boot linux netman dinit
-		# 	sbase upm doas tz util-linux
+		# 	upm tz util-linux
 		# warn if package_name is sway, swapps, termulator, or uni
 	fi
 	
@@ -204,10 +204,10 @@ elif [ "$1" = update ]; then
 	# boot'firmware updates need special care
 	# unless there is a read'only backup, firmware update is not a good idea
 	# so warn and ask the user if she wants the update
-	# doas fwupdmgr get-devices
-	# doas fwupdmgr refresh
-	# doas fwupdmgr get-updates
-	# doas fwupdmgr update
+	# fwupdmgr get-devices
+	# fwupdmgr refresh
+	# fwupdmgr get-updates
+	# fwupdmgr update
 elif [ "$1" = mkinst ]; then
 	. "$script_dir"/mkinst.sh
 elif [ "$1" = publish ]; then
