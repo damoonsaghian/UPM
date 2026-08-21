@@ -1,0 +1,2 @@
+# https://github.com/polkit-org/polkit
+# disable pam (use shadow instead)
