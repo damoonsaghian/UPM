@@ -1,5 +1,0 @@
-# elogind without its session manager parts:
-# , device access for active seat
-# , shutdown/suspend and inhibitor interface
-
-# disable PAM
