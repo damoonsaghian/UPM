@@ -38,7 +38,6 @@ x86*)
 esac
 
 echo "$ucode
-acpid
 bash
 bluez
 boot
@@ -47,6 +46,7 @@ cryptsetup
 dbus
 dinit
 dte
+elogind
 eudev
 fsprogs
 fwupd
@@ -55,11 +55,9 @@ linux
 netman
 opendoas
 pipewire
-seatd
 tpm2tools
 uni
 upm
-ushare
 ushell
 utils" | {
 	gnunet_namespace="$(cat "$scripr_dir"/../.meta/gns)"
@@ -67,22 +65,6 @@ utils" | {
 		UPM_ROOT="$target_dir" sh "$script_dir"/upm.sh install "$gnunet_namespace" "$pkg_name"
 	done
 }
-
-echo '#!/bin/sh
-if [ "$1" = "pre-commit" ]; then
-    true
-elif [ "$1" = "post-commit" ]; then
-	[ -f /boot/vmlinuz-stable ] && mv /boot/vmlinuz-stable /boot/vmlinuz
-	efi_path="$(echo /usr/lib/systemd/boot/efi/system-boot*.efi)"
-    [ -f "$efi_path" ] && mv "$efi_path" /boot/
-fi
-' > "$new_root"/etc/apk/commit_hooks.d/create-boot-files
-chmod +x "$new_root"/etc/apk/commit_hooks.d/create-boot-files
-
-chmod +x "$new_root"/usr/local/share/codev-util/tpm-getkey.sh
-ln -s /usr/local/share/codev-util/tpm-getkey.sh "$new_root"/usr/local/bin/tpm-getkey
-
-chroot "$new_root" sh /usr/local/share/systemd-boot/bootup.sh
 
 echo; echo "set root password (can be the same as he one used to encrypt the root partition)"
 echo "WARNING! do not use this password carelessly"
@@ -92,7 +74,7 @@ while ! chroot "$new_root" passwd root; do
 done
 
 # create a normal user
-chroot "$new_root" useradd --groups audio,video,seatd --base-dir / --create-home --shell /usr/bin/ushell nu
+chroot "$new_root" useradd --base-dir / --create-home --shell /usr/bin/ushell nu
 echo; echo "set lock'screen password"
 while ! chroot "$new_root" passwd nu; do
 	echo "please retry"

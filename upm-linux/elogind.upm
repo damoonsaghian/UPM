@@ -1,0 +1,7 @@
+# https://github.com/elogind/elogind
+# disable polkit and set POLKIT_DEFAULT_ALLOW
+# disable session tracker part like in chimera:
+# https://github.com/chimera-linux/cports/tree/master/main/elogind
+# so only these two parts remain:
+# , device access for system services run by normal user (like wayland compositor and pipewire)
+# , handling ACPI events, and providing an inhibit interface

@@ -16,7 +16,6 @@
 # --with-libpam=no
 # -D _PASSWD_FILE=\"/var/etc/passwd\" -D _GROUP_FILE=\"/var/etc/group\"
 # it seems that there no SHADOW_FILE to set to "/var/etc/shadow"
-# system groups: video audio seatd
 #
 # no multi'user: no need for pam_uaccess
 # PAM is centralized, complicated and useless
