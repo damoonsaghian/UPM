@@ -4,6 +4,9 @@ script_dir="$(dirname "$(readlink -f "$0")")"
 
 # notifications: error, update process, update finished
 
+# inhibit suspend/shutdown during operations
+# https://systemd.io/INHIBITOR_LOCKS/
+
 case "$1" in
 install) apk add "$2" ;;
 remove) apk del "$2" ;;
