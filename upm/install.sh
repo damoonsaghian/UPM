@@ -2,6 +2,10 @@ set -e
 
 script_dir="$(dirname "$(readlink -f "$0")")"
 
+# https://wiki.archlinux.org/title/Bubblewrap
+# https://bxt.rs/blog/easy-sandboxing-on-linux-with-bubblewrap/
+# https://sloonz.github.io/posts/sandboxing-2/
+
 state_dir="$XDG_STATE_HOME"
 [ -z "$state_dir" ] && state_dir="$HOME"/.local/state
 mkdir -p "$state_dir"/upm
