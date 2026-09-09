@@ -47,6 +47,13 @@ exit
 
 # package name includes its gnunet namespace
 
+# during update, check the dependency hardlinks, if they are not the same as the one in their package, update them
+# 	even if the package itself is up to date
+#
+# there is a list of packages that have finished install/upgrade, or are already up to date
+# during update, skip packages in the finished list
+# at the end remove packages that are not in the list
+
 # reproducible builds
 # during building, a .bdep file will be created that contains all the build dependencies and their versions,
 # 	in the order mentioned in the .upm file
